@@ -17,31 +17,60 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Do all of your work inside the document.addEventListener  
 
   // Part 1
-
+document.getElementById("main-title").textContent = 'DOM Torettos Homepage';
 
   // Part 2
-
+document.querySelector('body').style.backgroundColor = '#45658a';
 
   // Part 3
-
+const favoriteThings = document.getElementById('#favorite-things > li');
+document.querySelector('#favorite-things').removeChild(favoriteThings[favoriteThings.length - 1]);
 
   // Part 4
-
+document.querySelectorAll('.special-title').forEach((item) => {
+  item.style.fontSize = '2rem'
+})
 
   // Part 5
-
+let races = document.querySelector('#past-races > li').forEach((item) => {
+  if(item.textContent.trim() === 'Chicago'){
+    document.querySelector('#past-races').removeChild(item)
+  }
+});
 
   // Part 6
-
+const li = document.createElement('li');
+li.textContent = 'Richmond'
+document.querySelector('#past-races').appendChild(li);
 
   // Part 7
+const blogPost = document.createElement('div')
+blogPost.classList.add('blog-post')
+const heading = document.createElement('h2')
+heading.textConent = 'Richmond'
+const pEl = document.createElement('p')
+pEl.textContent = 'My hometown is Richmond, VA.'
 
+document.querySelector('.main').appendChild(blogPost)
+
+blogPost.appendChild(heading)
+blogPost.appendChild(pEl)
 
   // Part 8
-
+document.querySelector('#quote-title').addEventListener('click', (evt) => {
+  randomQuote()
+});
 
   // Part 9
-
+document.querySelectorAll('.blog-post').forEach((item) => {
+  item.addEventListener('mouseout', (evt) => {
+    evt.currentTarget.classList.toggle('purple')
+  })
+item.addEventListener('mouseenter', (evt) => {
+  evt.stopPropagation()
+  evt.currentTarget.classList.toggle('red')
+})
+});
 
 
 
